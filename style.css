@@ -74,17 +74,32 @@ section {
   border-left: 5px solid #333;
 }
 
-.skills {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+/* Skills */
+.skill-bar {
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
 }
 
-.skills li {
-  background: #ddd;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+.skill-bar-fill {
+  height: 20px;
+  width: 0;
+  background: #4CAF50;
+  text-align: right;
+  line-height: 20px;
+  color: white;
+  padding-right: 5px;
+  transition: width 2s ease-in-out;
+}
+
+/* Contact links */
+a {
+  color: #333;
+}
+
+a:hover {
+  color: #000;
 }
 
 /* Footer */
@@ -93,6 +108,39 @@ footer {
   padding: 1rem;
   background: #333;
   color: #fff;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode header,
+.dark-mode nav,
+.dark-mode footer {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .project {
+  background: #222;
+  border-left: 5px solid #888;
+}
+
+.dark-mode .skills li {
+  background: #444;
+}
+
+.dark-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Responsive */
