@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jerry's | Portfolio</title>
+  <title>Sigma Jerry's Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
   <header>
     <div class="container">
-      <img src="ander.png" alt="Profile Picture" class="profile-pic" />
-      <h1>Your Name</h1>
-      <p class="tagline">Bestest Person Ever</p>
+      <img src="ander.PNG" alt="Profile Picture" class="profile-pic" />
+      <h1>Jerri</h1>
+      <p class="tagline">Bestest person ever</p>
     </div>
   </header>
 
   <nav>
     <ul class="nav-links">
+      <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -24,37 +27,58 @@
   </nav>
 
   <main class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>SIGMA THATS WHO I AM 67</p>
+    </section>
+
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
-        <h3>Project 1(place holder)</h3>
-        <p>place holder</p>
-        <a href="https://github.com/yourusername/project-one" target="_blank">View on GitHub</a>
+        <h3>Starcraft Ai</h3>
+        <p>placeholder</p>
       </div>
       <div class="project">
-        <h3>Project two(place holder)</h3>
-        <p>placeholder</p>
-        <a href="https://github.com/yourusername/project-two" target="_blank">View on GitHub</a>
+        <h3>Placeholder</h3>
+        <p>Place holder</p>
       </div>
     </section>
 
     <section id="skills">
       <h2>Skills</h2>
-      <ul class="skills">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%;">HTML</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%;">CSS</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%;">JavaScript</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 70%;">Animation</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%;">Sleeping</div></div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:894589@pdsb.net">894589@pdsb.net</a></p>
+      <p>Github: <a href="https://github.com/JZ12456" target="_blank">Github Profile</a></p>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Jerry</p>
   </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    window.onload = () => {
+      const bars = document.querySelectorAll(".skill-bar-fill");
+      bars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = "0";
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 300);
+      });
+    };
+  </script>
 </body>
 </html>
