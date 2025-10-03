@@ -1,87 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Segoe UI", sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
-}
-
-/* Header */
-header {
-  background: #333;
-  color: #fff;
-  padding: 2rem 0;
-  text-align: center;
-}
-
-.profile-pic {
-  width: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-.tagline {
-  font-size: 1.2rem;
-  font-weight: 300;
-}
-
-/* Navigation */
-nav {
-  background: #555;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 0.5rem;
-}
-
-.nav-links li {
-  margin: 0 1rem;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-/* Main Content */
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 2rem auto;
-}
-
+/* Section visibility */
 section {
   margin-bottom: 3rem;
+  display: none;
+}
+section.active {
+  display: block;
 }
 
-.project {
-  background: #fff;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-left: 5px solid #333;
-}
-
-/* Skills */
+/* Skills cleanup */
 .skill-bar {
   background: #ddd;
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 1rem;
 }
-
 .skill-bar-fill {
   height: 20px;
   width: 0;
@@ -93,46 +25,9 @@ section {
   transition: width 2s ease-in-out;
 }
 
-/* Contact links */
-a {
-  color: #333;
-}
-
-a:hover {
-  color: #000;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #333;
-  color: #fff;
-}
-
-/* Dark Mode */
-body.dark-mode {
-  background-color: #121212;
-  color: #f1f1f1;
-}
-
-.dark-mode header,
-.dark-mode nav,
-.dark-mode footer {
-  background-color: #1e1e1e;
-}
-
-.dark-mode .project {
-  background: #222;
-  border-left: 5px solid #888;
-}
-
-.dark-mode .skills li {
-  background: #444;
-}
-
+/* Dark toggle button should stick */
 .dark-toggle {
-  position: absolute;
+  position: fixed;   /* changed from absolute */
   top: 1rem;
   right: 1rem;
   padding: 0.5rem 1rem;
@@ -142,29 +37,3 @@ body.dark-mode {
   border-radius: 5px;
   cursor: pointer;
 }
-
-/* Responsive */
-@media (max-width: 600px) {
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .skills {
-    flex-direction: column;
-  }
-
-  .skills li {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-section {
-  display: none;
-}
-
-section.active {
-  display: block;
-}
-
