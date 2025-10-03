@@ -67,44 +67,6 @@
     <p>&copy; 2025 Jerry</p>
   </footer>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-
-    window.onload = () => {
-      const bars = document.querySelectorAll(".skill-bar-fill");
-      bars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = "0";
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 300);
-      });
-    };
-    function showSection(id) {
-    const sections = document.querySelectorAll(".page-section");
-    sections.forEach(section => {
-      section.classList.remove("active");
-    });
-
-    const activeSection = document.getElementById(id);
-    if (activeSection) {
-      activeSection.classList.add("active");
-    }
-  }
-  function animateSkillBars() {
-    const bars = document.querySelectorAll(".skill-bar-fill");
-    bars.forEach(bar => {
-      const width = bar.style.width;
-      bar.style.width = "0";
-      setTimeout(() => {
-        bar.style.width = width;
-      }, 300);
-    });
-  }
-
-  document.querySelector('a[href="#skills"]').addEventListener("click", animateSkillBars);
-  </script>
+  <script scr="javascript.js"> </script>
 </body>
 </html>
