@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       //sidebar
-  function showSection(sectionId) {
-  
+     function showSection(sectionId) {
+      // Hide all switchable sections (about, projects, skills)
       document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-
+      // Show the one chosen
       document.getElementById(sectionId).classList.add('active');
     }
