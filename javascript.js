@@ -13,18 +13,6 @@ function toggleDarkMode() {
       });
     };
 
-   function showSection(id) {
-  const sections = document.querySelectorAll(".page-section");
-  sections.forEach(section => {
-    section.classList.remove("active");
-  });
-
-  const activeSection = document.getElementById(id);
-  if (activeSection) {
-    activeSection.classList.add("active");
-  }
-}
-
 
 function animateSkillBars() {
   const bars = document.querySelectorAll(".skill-bar-fill");
@@ -44,10 +32,4 @@ document.addEventListener("DOMContentLoaded", () => {
     skillsLink.addEventListener("click", animateSkillBars);
   }
 
-
-  const defaultSection = document.querySelector(".page-section.active");
-  if (defaultSection && defaultSection.id === "skills") {
-    animateSkillBars();
-  }
-});
 
