@@ -22,7 +22,7 @@
     <li><a href="#" onclick="showSection('about')">About</a></li>
     <li><a href="#" onclick="showSection('projects')">Projects</a></li>
     <li><a href="#" onclick="showSection('skills')">Skills</a></li>
-
+    <li><a href="#" onclick="showSection('contact')">Contact</a></li>
   </ul>
   </nav>
 
@@ -82,6 +82,29 @@
         }, 300);
       });
     };
+    function showSection(id) {
+    const sections = document.querySelectorAll(".page-section");
+    sections.forEach(section => {
+      section.classList.remove("active");
+    });
+
+    const activeSection = document.getElementById(id);
+    if (activeSection) {
+      activeSection.classList.add("active");
+    }
+  }
+  function animateSkillBars() {
+    const bars = document.querySelectorAll(".skill-bar-fill");
+    bars.forEach(bar => {
+      const width = bar.style.width;
+      bar.style.width = "0";
+      setTimeout(() => {
+        bar.style.width = width;
+      }, 300);
+    });
+  }
+
+  document.querySelector('a[href="#skills"]').addEventListener("click", animateSkillBars);
   </script>
 </body>
 </html>
