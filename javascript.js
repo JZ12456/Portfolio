@@ -1,8 +1,11 @@
+//dark mode
+
 function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     }
 
-    window.onload = () => {
+ //skill bar
+window.onload = () => {
       const bars = document.querySelectorAll(".skill-bar-fill");
       bars.forEach(bar => {
         const width = bar.style.width;
@@ -13,7 +16,7 @@ function toggleDarkMode() {
       });
     };
 
-
+//skill bar animation
 function animateSkillBars() {
   const bars = document.querySelectorAll(".skill-bar-fill");
   bars.forEach(bar => {
@@ -33,3 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+      //sidebar
+ function showSection(sectionId) {
+      
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    
+      document.getElementById(sectionId).classList.add('active');
+    }
