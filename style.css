@@ -1,13 +1,67 @@
-/* Section visibility */
-section {
-  margin-bottom: 3rem;
-  display: none;
-}
-section.active {
-  display: block;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Skills cleanup */
+body {
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #333;
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.tagline { font-size: 1.2rem; font-weight: 300; }
+
+/* Navigation */
+nav { background: #555; }
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+.nav-links li { margin: 0 1rem; }
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-links a:hover { text-decoration: underline; }
+
+/* Main Content */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+section {
+  margin-bottom: 3rem;
+  display: none; /* hide by default */
+}
+section.active { display: block; }
+
+.project {
+  background: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 5px solid #333;
+}
+
+/* Skills */
 .skill-bar {
   background: #ddd;
   border-radius: 10px;
@@ -25,9 +79,26 @@ section.active {
   transition: width 2s ease-in-out;
 }
 
-/* Dark toggle button should stick */
+/* Contact links */
+a { color: #333; }
+a:hover { color: #000; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #333;
+  color: #fff;
+}
+
+/* Dark Mode */
+body.dark-mode { background-color: #121212; color: #f1f1f1; }
+.dark-mode header, .dark-mode nav, .dark-mode footer { background-color: #1e1e1e; }
+.dark-mode .project { background: #222; border-left: 5px solid #888; }
+
+/* Dark Mode Toggle Button */
 .dark-toggle {
-  position: fixed;   /* changed from absolute */
+  position: fixed; /* fixed so it stays on screen */
   top: 1rem;
   right: 1rem;
   padding: 0.5rem 1rem;
@@ -36,4 +107,9 @@ section.active {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .nav-links { flex-direction: column; align-items: center; }
 }
