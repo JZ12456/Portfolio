@@ -1,26 +1,13 @@
-//dark mode
-
+// Dark mode
 function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
+  document.body.classList.toggle("dark-mode");
+}
 
- //skill bar
-window.onload = () => {
-      const bars = document.querySelectorAll(".skill-bar-fill");
-      bars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = "0";
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 300);
-      });
-    };
-
-//skill bar animation
+// Animate skill bars
 function animateSkillBars() {
   const bars = document.querySelectorAll(".skill-bar-fill");
   bars.forEach(bar => {
-    const width = bar.style.width;
+    const width = bar.dataset.width; // safer than style.width
     bar.style.width = "0";
     setTimeout(() => {
       bar.style.width = width;
@@ -28,18 +15,16 @@ function animateSkillBars() {
   });
 }
 
+// Show/hide sections
+function showSection(sectionId) {
+  // Hide all switchable sections
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
 
-document.addEventListener("DOMContentLoaded", () => {
-  const skillsLink = document.querySelector('a[onclick*="skills"]');
-  if (skillsLink) {
-    skillsLink.addEventListener("click", animateSkillBars);
+  // Show the chosen section
+  document.getElementById(sectionId).classList.add('active');
+
+  // If skills tab is clicked, animate bars
+  if (sectionId === "skills") {
+    animateSkillBars();
   }
-
-
-      //sidebar
-     function showSection(sectionId) {
-      // Hide all switchable sections (about, projects, skills)
-      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-      // Show the one chosen
-      document.getElementById(sectionId).classList.add('active');
-    }
+}
