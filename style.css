@@ -1,14 +1,24 @@
+/* Overall */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+/* body */
 body {
   font-family: "Segoe UI", sans-serif;
   line-height: 1.6;
   background-color: #f4f4f4;
   color: #333;
+  display: flex;
+  flex-direction: column;
+}
+/* contact */
+html, body {
+  height: 100%;
+}
+main {
+  flex: 1;
 }
 
 /* Header */
