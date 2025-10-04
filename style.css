@@ -113,7 +113,4 @@ body.dark-mode { background-color: #121212; color: #f1f1f1; }
 @media (max-width: 600px) {
   .nav-links { flex-direction: column; align-items: center; }
 }
-/* stops contact sidebar thingy to not get blocked */
-#contact {
-  display: block !important;
-}
+
