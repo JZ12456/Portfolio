@@ -42,6 +42,80 @@
       <div class="project">
         <h3>StarCraft Anscombe Quartet Code Explanation</h3>
         <p>Explaintion with code underneath for understanding of workflow</p>
+            <ul>
+            <li>
+                  <strong>1. Importing Libraries:</strong> Uses matplotlib for plotting, PIL to open images, and numpy for arrays and math operations.
+                  <pre><code>from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
+                  </code></pre>
+          </li>
+          <li>
+                <strong>2. Data Arrays:</strong> Defines x and y values for four datasets (Marine, Zergling, Zealot, Probe), inspired by Anscombe's quartet.
+                <pre><code>x123 = np.array([10, 8, 13, 9, 11, 14, 6, 4, 12, 7, 5])
+y1 = np.array([8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68])
+y2 = np.array([9.14, 8.14, 8.74, 8.77, 9.26, 8.10, 6.13, 3.10, 9.13, 7.26, 4.74])
+y3 = np.array([7.46, 6.77, 12.74, 7.11, 7.81, 8.84, 6.08, 5.39, 8.15, 6.42, 5.73])
+x4 = np.array([8, 8, 8, 8, 8, 8, 8, 19, 8, 8, 8])
+y4 = np.array([6.58, 5.76, 7.71, 8.84, 8.47, 7.04, 5.25, 12.50, 5.56, 7.91, 6.89])
+                </code></pre>
+          </li>
+          <li>
+                <strong>3. Loading Images:</strong> Opens PNG files for each StarCraft unit to use as custom markers.
+                <pre><code>marine_icon = Image.open('marine.png')
+zergling_icon = Image.open('zergling.png')
+zealot_icon = Image.open('zealot.png')
+probe_icon = Image.open('probe.png')
+                </code></pre>
+          </li>
+          <li>
+                <strong>4. Function to Create Icons:</strong> <code>get_icon</code> wraps an image for plotting with <code>OffsetImage</code> and controls its size with <code>zoom</code>.
+                <pre><code>def get_icon(image, zoom=0.1):
+return OffsetImage(image, zoom=zoom)
+                </code></pre>
+          </li>
+          <li>
+                <strong>5. Dataset Configuration:</strong> Groups each dataset with x-values, y-values, a label, and the corresponding image for easy looping.
+                <pre><code>datasets = [
+(x123, y1, 'Marine', marine_icon),
+(x123, y2, 'Zergling', zergling_icon),
+(x123, y3, 'Zealot', zealot_icon),
+(x4, y4, 'Probe', probe_icon),
+]              </code></pre>
+        </li>
+        <li>
+              <strong>6. Create Subplots:</strong> Sets up a 2x2 grid of plots and flattens axes for looping.
+              <pre><code>fig, axes = plt.subplots(2, 2, figsize=(10, 10))
+axes = axes.flatten()
+              </code></pre>
+        </li>
+        <li>
+              <strong>7. Regression Line Function:</strong> Defines a simple reference line <code>y = 3 + 0.5x</code> to overlay on all plots.
+              <pre><code>def fit_line(x):
+return 3 + 0.5 * x
+              </code></pre>
+        </li>
+        <li>
+              <strong>8. Plotting Each Dataset:</strong> Loops through datasets, plots the regression line, places the StarCraft icons at data points, and sets titles and axis limits.
+              <pre><code>for ax, (x, y, label, icon_image) in zip(axes, datasets):
+x_line = np.array([min(x), max(x)])
+ax.plot(x_line, fit_line(x_line), 'r--', label='fit line')
+for xi, yi in zip(x, y):
+    ab = AnnotationBbox(get_icon(icon_image, zoom=0.08), (xi, yi), frameon=False)
+    ax.add_artist(ab)
+ax.set_title(label)
+ax.set_xlim(2, 20)
+ax.set_ylim(2, 14)
+              </code></pre>
+        </li>
+        <li>
+              <strong>9. Final Plot Formatting:</strong> Adds a main title, adjusts layout spacing, and displays the plot.
+              <pre><code>plt.suptitle("Graph With Starcraft")
+plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+plt.show()    </code></pre>
+        </li>
+  </ul>
       </div>
     </section>
 
