@@ -1,203 +1,103 @@
-/* Overall */
-* {
+/*Basic Styling*/
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-/* body */
-body {
-  font-family: "Segoe UI", sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-}
-/* contact */
-html, body {
-  height: 100%;
-}
-main {
-  flex: 1;
+  transition: background-color 0.4s, color 0.4s;
 }
 
-/* Header */
-header {
-  background: #333;
-  color: #fff;
-  padding: 2rem 0;
+header, nav, footer {
   text-align: center;
+  padding: 1em;
+  background-color: #f4f4f4;
 }
-.profile-pic {
-  width: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-.tagline { font-size: 1.2rem; font-weight: 300; }
 
-/* Navigation */
-nav { background: #555; }
-.nav-links {
+.profile-pic {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 1em;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+ul.nav-links {
   list-style: none;
+  padding: 0;
   display: flex;
   justify-content: center;
-  padding: 0.5rem;
+  gap: 1em;
 }
-.nav-links li { margin: 0 1rem; }
-.nav-links a {
-  color: #fff;
+
+ul.nav-links li a {
   text-decoration: none;
+  color: #007bff;
   font-weight: bold;
-}
-.nav-links a:hover { text-decoration: underline; }
-
-/* Main Content */
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 2rem auto;
-}
-
-section {
-  margin-bottom: 3rem;
-  display: none; /* hide by default */
-}
-section.active { display: block; }
-
-.project {
-  background: #fff;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-left: 5px solid #333;
-}
-
-/* Skills */
-.skill-bar {
-  background: #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 1rem;
-}
-.skill-bar-fill {
-  height: 20px;
-  width: 0;
-  background: #4CAF50;
-  text-align: right;
-  line-height: 20px;
-  color: white;
-  padding-right: 5px;
-  transition: width 2s ease-in-out;
-}
-
-/* Contact links */
-a { color: #333; }
-a:hover { color: #000; }
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #333;
-  color: #fff;
-}
-
-/* Dark Mode */
-body.dark-mode { background-color: #121212; color: #f1f1f1; }
-.dark-mode header, .dark-mode nav, .dark-mode footer { background-color: #1e1e1e; }
-.dark-mode .project { background: #222; border-left: 5px solid #888; }
-
-/* Dark Mode Toggle Button */
-.dark-toggle {
-  position: fixed; /* fixed so it stays on screen */
-  top: 1rem;
-  right: 1rem;
-  padding: 0.5rem 1rem;
-  background: #222;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .nav-links { flex-direction: column; align-items: center; }
+/*Dark Mode*/
+.dark-mode {
+  background-color: #121212;
+  color: white;
 }
 
-
-/*CUSTOM CSS FOR DATA VISUALIZATION FIXING LATER BROKEN  */
-.project-starcraft {
-  background: linear-gradient(135deg, #1b1b2f, #2c2c3e); /* dark gradient, sci-fi feel */
-  color: #e0e0f0; 
-  border-left: 6px solid #00bfff; /* Terran blue accent */
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 15px rgba(0,191,255,0.2);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  transition: transform 0.2s ease;
+.dark-mode header,
+.dark-mode nav,
+.dark-mode footer {
+  background-color: #1e1e1e;
 }
 
-.project-starcraft:hover {
-  transform: scale(1.02);
+/*Skill Bars*/
+.skill-bar {
+  background-color: #ddd;
+  border-radius: 20px;
+  margin: 10px 0;
+  overflow: hidden;
 }
 
-/* Title */
-.project-starcraft h3 {
-  color: #ffd700; /* Protoss gold accent */
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 6px #000, 0 0 8px #ffd700; /* tech-glow effect */
+.skill-bar-fill {
+  height: 20px;
+  background-color: #007bff;
+  color: white;
+  text-align: right;
+  padding-right: 10px;
+  line-height: 20px;
+  width: 0;
+  border-radius: 20px;
+  transition: width 1s ease;
 }
 
-/* Paragraph description */
-.project-starcraft p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  color: #c0c0f0;
+/*Charts*/
+.chart {
+  margin-top: 20px;
 }
 
-/* Image styling */
-.project-starcraft img {
-  display: block;
-  margin: 0 auto 1rem auto;
+button.dark-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 6px 12px;
   border-radius: 8px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.6), 0 0 15px rgba(0,191,255,0.4);
-  max-width: 100%;
-  height: auto;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
 }
 
-.project-starcraft img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,191,255,0.7), 0 0 20px #00bfff;
-}
-
-/* List styling */
-.project-starcraft ul {
-  list-style-type: decimal;
-  padding-left: 1.5rem;
-}
-
-/* List items */
-.project-starcraft li {
-  margin-bottom: 1rem;
-}
-
-/* Code blocks */
-.project-starcraft pre {
-  background: #0d0d1a; 
-  border-left: 4px solid #ff4500; /* Zerg reddish-orange accent */
-  padding: 1rem;
-  overflow-x: auto;
-  border-radius: 6px;
-  box-shadow: inset 0 0 12px rgba(255,69,0,0.3);
-  margin-top: 0.5rem;
-}
-
-/* tech-cyan code highlight */
-.project-starcraft code {
-  font-family: "Courier New", Courier, monospace;
-  color: #7fffd4; 
+footer a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
 }
