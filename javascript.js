@@ -113,7 +113,7 @@ function makeOverlaid() {
   Plotly.newPlot("overlaid", traces, layout);
 }
 
-// === Run all plots when DOM is ready ===
+//Run all plots
 document.addEventListener("DOMContentLoaded", () => {
   makeScatter();
   makeResiduals();
