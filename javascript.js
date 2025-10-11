@@ -85,12 +85,67 @@ function makeResiduals() {
 
 //Box and Violin
 function makeBox() {
-  const traces = [
-    {type: "box", name: "x", y: datasets.flatMap(d => d.x)},
-    {type: "violin", name: "y", y: datasets.flatMap(d => d.y), box: {visible: true}}
-  ];
-  const layout = {title: "Box and Violin Plots", height: 500, width: 900};
-  Plotly.newPlot("box", traces, layout);
+  //Definecolors for all datasets
+  const colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"]; 
+  
+  const boxTraces = datasets.map((d, i) => ({
+    type: "box",
+    y: d.y,
+    name: d.name,
+    marker: { color: colors[i] },
+    boxpoints: "all",
+    jitter: 0.3,
+    whiskerwidth: 0.2,
+    xaxis: "x1",
+    yaxis: "y1"
+  }));
+  
+  const violinTraces = datasets.map((d, i) => ({
+    type: "violin",
+    y: d.y,
+    name: d.name,
+    marker: { color: colors[i] },
+    box: { visible: true },
+    meanline: { visible: true },
+    points: "all",
+    side: "positive",
+    xaxis: "x2",
+    yaxis: "y2"
+  }));
+
+  //Layout box(left) vs violin(right)
+  const layout = {
+    title: "Box (Left) vs Violin (Right) — Anscombe Quartet",
+    grid: { rows: 1, columns: 2, pattern: "independent" },
+    height: 700,
+    width: 1000,
+    showlegend: true,
+    plot_bgcolor: "#f9f9f9",
+    paper_bgcolor: "#f9f9f9",
+    annotations: [
+      {
+        text: "Box Plots",
+        xref: "paper", yref: "paper",
+        x: 0.18, y: 1.07,
+        showarrow: false,
+        font: { size: 16, color: "#333" }
+      },
+      {
+        text: "Violin Plots",
+        xref: "paper", yref: "paper",
+        x: 0.82, y: 1.07,
+        showarrow: false,
+        font: { size: 16, color: "#333" }
+      }
+    ],
+    xaxis: { domain: [0, 0.45] },
+    xaxis2: { domain: [0.55, 1] },
+    yaxis: { title: "Y-values", range: [2, 14] },
+    yaxis2: { title: "Y-values", range: [2, 14] }
+  };
+
+  
+  Plotly.newPlot("box", [...boxTraces, ...violinTraces], layout);
 }
 
 //Overlaid Comparison
