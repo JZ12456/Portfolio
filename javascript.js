@@ -1,28 +1,23 @@
-// Dark Mode
+//Dark Mode
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
 
-// Skill bar animation
+//Animate Skill Bars
 function animateSkillBars() {
   const bars = document.querySelectorAll(".skill-bar-fill");
   bars.forEach(bar => {
-    const width = bar.dataset.width; // use data-width for reliability
+    const width = bar.dataset.width;
     bar.style.width = "0";
-    setTimeout(() => { bar.style.width = width; }, 300);
+    setTimeout(() => { bar.style.width = width; }, 100);
   });
 }
 
-// Section switching
-function showSection(sectionId) {
-  // Hide all switchable sections
-  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-  
-  // Show chosen section
-  document.getElementById(sectionId).classList.add('active');
-
-  // Animate skill bars when Skills tab clicked
-  if (sectionId === "skills") animateSkillBars();
+//Section Switching
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (id === "skills") animateSkillBars();
 }
 
 //Anscombe Data
@@ -40,38 +35,28 @@ const datasets = [
   {x: x4,   y: y4,  name: "Dataset IV"}
 ];
 
-//Fit line
 function fitLine(x) { return x.map(v => 3 + 0.5*v); }
+
+//Plotly Graphs
 
 //Scatterplots with fit lines
 function makeScatter() {
   const subplots = [];
-  const rows = 2, cols = 2;
   let index = 0;
-
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < cols; j++) {
-      const d = datasets[index++];
-      if (!d) continue;
-      subplots.push({
-        type: "scatter",
-        x: d.x, y: d.y,
-        mode: "markers",
-        name: d.name,
-        xaxis: `x${index}`,
-        yaxis: `y${index}`
-      });
-      subplots.push({
-        type: "scatter",
-        x: [...Array(100).keys()].map(v => v/5 + 3),
-        y: [...Array(100).keys()].map(v => 3 + 0.5*(v/5 + 3)),
-        mode: "lines",
-        line: {dash: "dash", color: "red"},
-        showlegend: false,
-        xaxis: `x${index}`,
-        yaxis: `y${index}`
-      });
-    }
+  for (const d of datasets) {
+    index++;
+    subplots.push({
+      type: "scatter", mode: "markers",
+      x: d.x, y: d.y, name: d.name,
+      xaxis: "x" + index, yaxis: "y" + index
+    });
+    subplots.push({
+      type: "scatter", mode: "lines",
+      x: [3, 20], y: [fitLine([3,20])[0], fitLine([3,20])[1]],
+      line: {dash: "dash", color: "red"},
+      showlegend: false,
+      xaxis: "x" + index, yaxis: "y" + index
+    });
   }
 
   const layout = {
@@ -80,83 +65,58 @@ function makeScatter() {
     height: 700,
     width: 900
   };
-
-  Plotly.newPlot('scatter', subplots, layout);
+  Plotly.newPlot("scatter", subplots, layout);
 }
 
 //Residuals
 function makeResiduals() {
-  const traces = datasets.map((d) => {
+  const traces = datasets.map(d => {
     const residuals = d.y.map((yi, i) => yi - (3 + 0.5*d.x[i]));
-    return {
-      x: d.x, y: residuals, mode: "markers",
-      name: d.name
-    };
+    return {x: d.x, y: residuals, mode: "markers", name: d.name};
   });
   const layout = {
     title: "Residual Plots",
     xaxis: {title: "x"},
     yaxis: {title: "Residual (y - ŷ)"},
-    height: 700, width: 900
+    height: 600, width: 900
   };
-  Plotly.newPlot('residuals', traces, layout);
+  Plotly.newPlot("residuals", traces, layout);
 }
 
 //Box and Violin
 function makeBox() {
   const traces = [
-    {
-      type: "box",
-      x: datasets.map(d => d.name),
-      y: datasets.flatMap(d => d.x),
-      name: "x"
-    },
-    {
-      type: "violin",
-      x: datasets.map(d => d.name),
-      y: datasets.flatMap(d => d.y),
-      name: "y",
-      box: {visible: true}
-    }
+    {type: "box", name: "x", y: datasets.flatMap(d => d.x)},
+    {type: "violin", name: "y", y: datasets.flatMap(d => d.y), box: {visible: true}}
   ];
-  const layout = {
-    title: "Box and Violin Plots",
-    grid: {rows: 1, columns: 2, pattern: "independent"},
-    height: 500, width: 900
-  };
-  Plotly.newPlot('box', traces, layout);
+  const layout = {title: "Box and Violin Plots", height: 500, width: 900};
+  Plotly.newPlot("box", traces, layout);
 }
 
-//Overlaid comparison
+//Overlaid Comparison
 function makeOverlaid() {
   const traces = datasets.map(d => ({
-    type: "scatter",
-    x: d.x, y: d.y,
-    mode: "markers",
-    name: d.name
+    type: "scatter", mode: "markers", name: d.name, x: d.x, y: d.y
   }));
-
-  const all_x = datasets.flatMap(d => d.x);
   const fitx = Array.from({length: 100}, (_, i) => i/5 + 3);
   const fity = fitLine(fitx);
   traces.push({
-    x: fitx, y: fity,
-    mode: "lines", name: "Fit Line",
-    line: {dash: "dash", color: "red"}
+    type: "scatter", mode: "lines", name: "Fit Line",
+    x: fitx, y: fity, line: {dash: "dash", color: "red"}
   });
-
   const layout = {
     title: "Overlaid Comparison of All Datasets",
     xaxis: {range: [2, 20], title: "x"},
     yaxis: {range: [2, 14], title: "y"},
     height: 600, width: 800
   };
-
-  Plotly.newPlot('overlaid', traces, layout);
+  Plotly.newPlot("overlaid", traces, layout);
 }
 
-//Run all
-makeScatter();
-makeResiduals();
-makeBox();
-makeOverlaid();
+// === Run all plots when DOM is ready ===
+document.addEventListener("DOMContentLoaded", () => {
+  makeScatter();
+  makeResiduals();
+  makeBox();
+  makeOverlaid();
+});
