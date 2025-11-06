@@ -176,19 +176,13 @@ document.addEventListener("DOMContentLoaded", () => {
   makeOverlaid();
 });
 
-//Handle project display
-function openProject(id) {
-  window.location.href = `${window.location.pathname}?project=${id}`;
-}
 
-//Project data
 const projects = {
   "starcraft-ai": {
     title: "Starcraft AI",
     content: `
       <p><strong>Overview:</strong> StarCraft 2 bot built using the BurnySC2 Python API.
       Allows a simple rule-based AI to beat all 3 races and adapt build orders to different opponents.</p>
-      <p><strong>Features:</strong></p>
       <ul>
         <li><b>Race Strategy Module:</b> Executes pro build orders per race.</li>
         <li><b>MacroManager:</b> Manages transitions, macro cycles, and production.</li>
@@ -196,7 +190,6 @@ const projects = {
         <li><b>Stable API:</b> Built on BurnySC2’s wrapper for Blizzard’s official SC2 API.</li>
       </ul>
       <p><strong>How to Run:</strong><br>
-      Unzip, install dependencies, then execute:<br>
       <code>python terran_bot_v2.py --race Protoss --difficulty Hard</code></p>
     `
   },
@@ -216,14 +209,18 @@ const projects = {
   }
 };
 
-//Render
+//Open project
+function openProject(id) {
+  window.location.href = `${window.location.pathname}?project=${id}`;
+}
+
+//Render project details
 const params = new URLSearchParams(window.location.search);
 const selected = params.get("project");
 
 if (selected && projects[selected]) {
   const list = document.getElementById("project-list");
   const details = document.getElementById("project-details");
-
   list.style.display = "none";
   details.style.display = "block";
 
@@ -234,4 +231,12 @@ if (selected && projects[selected]) {
       ${projects[selected].content}
     </div>
   `;
+
+  // Rebuild charts if the project is the visualization one
+  if (selected === "starcraft-anscombe") {
+    makeScatter();
+    makeResiduals();
+    makeBox();
+    makeOverlaid();
+  }
 }
