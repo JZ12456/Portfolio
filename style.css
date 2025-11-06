@@ -101,3 +101,39 @@ footer a {
   text-decoration: none;
   font-weight: bold;
 }
+
+.project-box {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s, background-color 0.2s;
+}
+
+.project-box:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  background-color: #f9f9f9;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  background-color: #0078d4;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.back-btn:hover {
+  background-color: #005fa3;
+}
+
+code {
+  background-color: #eee;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
