@@ -175,3 +175,63 @@ document.addEventListener("DOMContentLoaded", () => {
   makeBox();
   makeOverlaid();
 });
+
+//Handle project display
+function openProject(id) {
+  window.location.href = `${window.location.pathname}?project=${id}`;
+}
+
+//Project data
+const projects = {
+  "starcraft-ai": {
+    title: "Starcraft AI",
+    content: `
+      <p><strong>Overview:</strong> StarCraft 2 bot built using the BurnySC2 Python API.
+      Allows a simple rule-based AI to beat all 3 races and adapt build orders to different opponents.</p>
+      <p><strong>Features:</strong></p>
+      <ul>
+        <li><b>Race Strategy Module:</b> Executes pro build orders per race.</li>
+        <li><b>MacroManager:</b> Manages transitions, macro cycles, and production.</li>
+        <li><b>MicroManager:</b> Handles target prioritization, retreat logic, and Medivac drop AI.</li>
+        <li><b>Stable API:</b> Built on BurnySC2’s wrapper for Blizzard’s official SC2 API.</li>
+      </ul>
+      <p><strong>How to Run:</strong><br>
+      Unzip, install dependencies, then execute:<br>
+      <code>python terran_bot_v2.py --race Protoss --difficulty Hard</code></p>
+    `
+  },
+  "starcraft-anscombe": {
+    title: "StarCraft Anscombe Quartet (Visualization Project)",
+    content: `
+      <p>Recreates the Anscombe quartet using StarCraft units as data markers, 
+      showing how datasets with identical statistics can differ visually.</p>
+      <img src="starcraft_plot.png" alt="StarCraft Anscombe Quartet Plot" 
+           style="width:100%; max-width:600px; border-radius:8px;">
+      <h4>Interactive Version</h4>
+      <div id="scatter" class="chart"></div>
+      <div id="residuals" class="chart"></div>
+      <div id="box" class="chart"></div>
+      <div id="overlaid" class="chart"></div>
+    `
+  }
+};
+
+//Render
+const params = new URLSearchParams(window.location.search);
+const selected = params.get("project");
+
+if (selected && projects[selected]) {
+  const list = document.getElementById("project-list");
+  const details = document.getElementById("project-details");
+
+  list.style.display = "none";
+  details.style.display = "block";
+
+  details.innerHTML = `
+    <a href="${window.location.pathname}" class="back-btn">← Back to Projects</a>
+    <div class="project-box">
+      <h3>${projects[selected].title}</h3>
+      ${projects[selected].content}
+    </div>
+  `;
+}
