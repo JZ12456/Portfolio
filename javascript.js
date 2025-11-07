@@ -197,7 +197,14 @@ const projects = {
     <p>
       <a href="EDA.pdf" target="_blank" 
          style="color:#007bff; text-decoration:none; font-weight:bold;">
-         EDA
+         View Full Report
+      </a>
+    </p>
+     <h4>Full Code</h4>
+    <p>
+      <a href="EDA_CODE.pdf" target="_blank" 
+         style="color:#007bff; text-decoration:none; font-weight:bold;">
+         View Full Code
       </a>
     </p>
       <h4>Interactive Version</h4>
