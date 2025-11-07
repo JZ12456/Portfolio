@@ -162,30 +162,7 @@ function makeOverlaid() {
   };
   Plotly.newPlot("overlaid", traces, layout);
 }
-function openProject(projectId) {
-  const project = projects[projectId];
-  const detailsDiv = document.getElementById("project-details");
 
-  if (project) {
-    // Clear old content just in case
-    detailsDiv.innerHTML = "";
-
-    // Use backticks for a proper template literal
-    detailsDiv.innerHTML = `
-      <h3>${project.title}</h3>
-      ${project.content}
-      <button onclick="closeProject()" style="margin-top:10px;">Back to Projects</button>
-    `;
-
-    detailsDiv.style.display = "block";
-    document.getElementById("project-list").style.display = "none";
-  }
-}
-
-function closeProject() {
-  document.getElementById("project-details").style.display = "none";
-  document.getElementById("project-list").style.display = "flex";
-}
 //Run all plots
 document.addEventListener("DOMContentLoaded", () => {
   makeScatter();
@@ -240,9 +217,8 @@ const projects = {
   "tractor-design": {
     title: "Tractor/Segway Project",
     content: `
-      <p>The goal of this project was to design, analazye, 
-      build and document an Hybrid OTTPA Super Mini Modified Tractor concept that meets the official OTTPA rules.
-      The project was to better help with the understanding of mechanical and electrical system while documenting it with professional tools such as LaTeX.</p>
+      <p>Recreates the Anscombe quartet using StarCraft units as data markers, 
+      showing how datasets with identical statistics can differ visually.</p>
       <h4>LaTex Report</h4>
     <p>
       <a href="EDA.pdf" target="_blank" 
@@ -254,28 +230,29 @@ const projects = {
   }
 };
 //Open project
-function openProject(projectId) {
-  const project = projects[projectId];
-  const detailsDiv = document.getElementById("project-details");
-
-  if (project) {
-    detailsDiv.innerHTML = "";
-
-    detailsDiv.innerHTML = `
-      <h3>${project.title}</h3>
-      ${project.content}
-      <button onclick="closeProject()" style="margin-top:10px;">Back to Projects</button>
-    `;
-
-    detailsDiv.style.display = "block";
-    document.getElementById("project-list").style.display = "none";
-  }
+function openProject(id) {
+  window.location.href = `${window.location.pathname}?project=${id}`;
 }
 
-function closeProject() {
-  document.getElementById("project-details").style.display = "none";
-  document.getElementById("project-list").style.display = "flex";
-}
+//Details
+const params = new URLSearchParams(window.location.search);
+const selected = params.get("project");
+
+if (selected && projects[selected]) {
+  const list = document.getElementById("project-list");
+  const details = document.getElementById("project-details");
+  list.style.display = "none";
+  details.style.display = "block";
+
+  details.innerHTML = `
+    <a href="${window.location.pathname}" class="back-btn">← Back to Projects</a>
+    <div class="project-box">
+      <h3>${projects[selected].title}</h3>
+      ${projects[selected].content}
+    </div>
+  `;
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('projects').classList.add('active');
 
   //Rebuild charts if needed
   if (selected === "starcraft-anscombe") {
