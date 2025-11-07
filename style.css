@@ -1,4 +1,33 @@
 body {
+}
+
+
+nav ul {
+list-style: none;
+display: flex;
+justify-content: space-around;
+background: #222;
+padding: 1em;
+margin: 0;
+}
+
+
+nav a, #darkModeToggle {
+color: #fff;
+text-decoration: none;
+cursor: pointer;
+}
+
+
+.section {
+display: none;
+padding: 2em;
+}
+
+
+.section.active {
+display: block;
+}
 
 
 .skill-bar {
