@@ -217,8 +217,9 @@ const projects = {
   "tractor-design": {
     title: "Tractor/Segway Project",
     content: `
-      <p>Recreates the Anscombe quartet using StarCraft units as data markers, 
-      showing how datasets with identical statistics can differ visually.</p>
+      <p>The goal of this project was to design, analazye, 
+      build and document an Hybrid OTTPA Super Mini Modified Tractor concept that meets the official OTTPA rules.
+      The project was to better help with the understanding of mechanical and electrical system while documenting it with professional tools such as LaTeX.</p>
       <h4>LaTex Report</h4>
     <p>
       <a href="EDA.pdf" target="_blank" 
@@ -226,18 +227,6 @@ const projects = {
          View Full Report
       </a>
     </p>
-     <h4>Full Code</h4>
-    <p>
-      <a href="EDA_CODE.pdf" target="_blank" 
-         style="color:#007bff; text-decoration:none; font-weight:bold;">
-         View Full Code
-      </a>
-    </p>
-      <h4>Interactive Version</h4>
-      <div id="scatter" class="chart"></div>
-      <div id="residuals" class="chart"></div>
-      <div id="box" class="chart"></div>
-      <div id="overlaid" class="chart"></div>
     `
   }
 };
