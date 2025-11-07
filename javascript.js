@@ -174,25 +174,26 @@ document.addEventListener("DOMContentLoaded", () => {
 //Project definitions
 const projects = {
   "tractor-design": {
-    title: "Tractor/Segway Project",
-    content: `
-        <p><strong>Overview:</strong> The goal of this project was to design, analyze, 
-  build, and document a Hybrid OTTPA Super Mini Modified Tractor concept that meets 
-  the official OTTPA rules. The project was to better help with the understanding 
-  of mechanical and electrical systems while documenting it with professional tools 
-  such as LaTeX.</p>
-  <h4>LaTeX Report</h4>
+  title: "Tractor/Segway Project",
+  content: `
+    <p><strong>Overview:</strong> The goal of this project was to design, analyze, 
+    build, and document a Hybrid OTTPA Super Mini Modified Tractor concept that meets 
+    the official OTTPA rules. The project was to better help with the understanding 
+    of mechanical and electrical systems while documenting it with professional tools 
+    such as LaTeX.</p>
+
+    <h4>LaTeX Report</h4>
     <p>
       <a href="EDA.pdf" target="_blank" 
          style="color:#007bff; text-decoration:none; font-weight:bold;">
          View Full Report
       </a>
-      <img src="Sketch1.PNG" alt="Drive Train">
-      <img src="sketch 2.PNG" alt="Control system/ Wiring">
     </p>
-    
-    `
-  },
+
+    <img src="Sketch1.PNG" alt="Drive Train">
+    <img src="sketch2.PNG" alt="Control system/ Wiring">
+  `
+}
   "starcraft-anscombe": {
     title: "StarCraft Anscombe Quartet (Visualization Project)",
     content: `
@@ -218,7 +219,7 @@ const projects = {
       <div id="box" class="chart"></div>
       <div id="overlaid" class="chart"></div>
     `
-  },
+  }
   "starcraft-ai": {
     title: "Starcraft AI",
     content: `
