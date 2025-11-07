@@ -174,18 +174,20 @@ document.addEventListener("DOMContentLoaded", () => {
 //Project definitions
 const projects = {
   "starcraft-ai": {
-    title: "Starcraft AI",
+    title: "Tractor/Segway Project",
     content: `
-      <p><strong>Overview:</strong> StarCraft 2 bot built using the BurnySC2 Python API.
-      Allows a simple rule-based AI to beat all 3 races and adapt build orders to different opponents.</p>
-      <ul>
-        <li><b>Race Strategy Module:</b> Executes pro build orders per race.</li>
-        <li><b>MacroManager:</b> Manages transitions, macro cycles, and production.</li>
-        <li><b>MicroManager:</b> Handles target prioritization, retreat logic, and Medivac drop AI.</li>
-        <li><b>Stable API:</b> Built on BurnySC2’s wrapper for Blizzard’s official SC2 API.</li>
-      </ul>
-      <p><strong>How to Run:</strong><br>
-      <code>python terran_bot_v2.py --race Protoss --difficulty Hard</code></p>
+      <p><strong>Overview:</strong> The goal of this project was to design, analazye, 
+      build and document an Hybrid OTTPA Super Mini Modified Tractor concept that meets the official OTTPA rules. The project was to better help with the understanding of mechanical and electrical system while documenting it with professional tools such as LaTeX.</p>
+       <h4>LaTex Report</h4>
+    <p>
+      <a href="EDA.pdf" target="_blank" 
+         style="color:#007bff; text-decoration:none; font-weight:bold;">
+         View Full Report
+      </a>
+      <img src="Sketch1.png" alt="Drive Train">
+      <img src="sketch 2.png" alt="Control system/ Wiring">
+    </p>
+    
     `
   },
   "starcraft-anscombe": {
