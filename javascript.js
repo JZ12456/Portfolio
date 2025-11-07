@@ -236,6 +236,9 @@ function openProject(projectId) {
   const detailsDiv = document.getElementById("project-details");
 
   if (project) {
+    // clear any previous content
+    detailsDiv.innerHTML = "";
+
     detailsDiv.innerHTML = `
       <h3>${project.title}</h3>
       ${project.content}
@@ -244,11 +247,6 @@ function openProject(projectId) {
     detailsDiv.style.display = "block";
     document.getElementById("project-list").style.display = "none";
   }
-}
-
-function closeProject() {
-  document.getElementById("project-details").style.display = "none";
-  document.getElementById("project-list").style.display = "flex";
 }
 
   //Rebuild charts if needed
