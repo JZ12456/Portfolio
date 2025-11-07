@@ -200,8 +200,6 @@ const projects = {
          EDA
       </a>
     </p>
-      <img src="starcraft_plot.png" alt="StarCraft Anscombe Quartet Plot" 
-           style="width:100%; max-width:600px; border-radius:8px;">
       <h4>Interactive Version</h4>
       <div id="scatter" class="chart"></div>
       <div id="residuals" class="chart"></div>
