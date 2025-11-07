@@ -241,31 +241,44 @@ function openProject(id) {
   window.location.href = `${window.location.pathname}?project=${id}`;
 }
 
-//Details
-const params = new URLSearchParams(window.location.search);
-const selected = params.get("project");
+//Close project
+function closeProject() {
+  // Remove query parameter by reloading the page without it
+  window.location.href = window.location.pathname;
+}
 
-if (selected && projects[selected]) {
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const selected = params.get("project");
+
   const list = document.getElementById("project-list");
   const details = document.getElementById("project-details");
-  list.style.display = "none";
-  details.style.display = "block";
 
-  details.innerHTML = `
-    <a href="${window.location.pathname}" class="back-btn">← Back to Projects</a>
-    <div class="project-box">
-      <h3>${projects[selected].title}</h3>
-      ${projects[selected].content}
-    </div>
-  `;
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById('projects').classList.add('active');
+  if (selected && projects[selected]) {
+    //Hide project list
+    list.style.display = "none";
+    details.style.display = "block";
 
-  //Rebuild charts if needed
-  if (selected === "starcraft-anscombe") {
-    makeScatter();
-    makeResiduals();
-    makeBox();
-    makeOverlaid();
+    //Show project details
+    details.innerHTML = `
+      <a href="${window.location.pathname}" class="back-btn" onclick="closeProject()">← Back to Projects</a>
+      <div class="project-box">
+        <h3>${projects[selected].title}</h3>
+        ${projects[selected].content}
+      </div>
+    `;
+
+    //Rebuild charts if needed
+    if (selected === "starcraft-anscombe") {
+      makeScatter();
+      makeResiduals();
+      makeBox();
+      makeOverlaid();
+    }
+
+  } else {
+    //Show project list if no project selected
+    list.style.display = "flex";
+    details.style.display = "none";
   }
-}
+});
