@@ -24,13 +24,8 @@ header, nav, footer {
   padding: 1em;
 }
 
-.section {
-  display: none;
-}
-
-.section.active {
-  display: block;
-}
+.section { display: none; }
+.section.active { display: block; }
 
 ul.nav-links {
   list-style: none;
