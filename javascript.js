@@ -184,8 +184,8 @@ const projects = {
          style="color:#007bff; text-decoration:none; font-weight:bold;">
          View Full Report
       </a>
-      <img src="Sketch1.png" alt="Drive Train">
-      <img src="sketch 2.png" alt="Control system/ Wiring">
+      <img src="Sketch1.PNG" alt="Drive Train">
+      <img src="sketch 2.PNG" alt="Control system/ Wiring">
     </p>
     
     `
