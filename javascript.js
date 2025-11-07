@@ -176,9 +176,12 @@ const projects = {
   "tractor-design": {
     title: "Tractor/Segway Project",
     content: `
-      <p><strong>Overview:</strong> The goal of this project was to design, analazye, 
-      build and document an Hybrid OTTPA Super Mini Modified Tractor concept that meets the official OTTPA rules. The project was to better help with the understanding of mechanical and electrical system while documenting it with professional tools such as LaTeX.</p>
-       <h4>LaTex Report</h4>
+        <p><strong>Overview:</strong> The goal of this project was to design, analyze, 
+  build, and document a Hybrid OTTPA Super Mini Modified Tractor concept that meets 
+  the official OTTPA rules. The project was to better help with the understanding 
+  of mechanical and electrical systems while documenting it with professional tools 
+  such as LaTeX.</p>
+  <h4>LaTeX Report</h4>
     <p>
       <a href="EDA.pdf" target="_blank" 
          style="color:#007bff; text-decoration:none; font-weight:bold;">
