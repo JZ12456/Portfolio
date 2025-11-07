@@ -238,47 +238,33 @@ const projects = {
 };
 //Open project
 function openProject(id) {
-  window.location.href = `${window.location.pathname}?project=${id}`;
-}
-
-//Close project
-function closeProject() {
-  // Remove query parameter by reloading the page without it
-  window.location.href = window.location.pathname;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const selected = params.get("project");
-
+  //Hide project list and show project details
   const list = document.getElementById("project-list");
   const details = document.getElementById("project-details");
 
-  if (selected && projects[selected]) {
-    //Hide project list
-    list.style.display = "none";
-    details.style.display = "block";
+  list.style.display = "none";
+  details.style.display = "block";
 
-    //Show project details
-    details.innerHTML = `
-      <a href="${window.location.pathname}" class="back-btn" onclick="closeProject()">← Back to Projects</a>
-      <div class="project-box">
-        <h3>${projects[selected].title}</h3>
-        ${projects[selected].content}
-      </div>
-    `;
+  details.innerHTML = `
+    <button onclick="closeProject()" class="back-btn">← Back to Projects</button>
+    <div class="project-box">
+      <h3>${projects[id].title}</h3>
+      ${projects[id].content}
+    </div>
+  `;
 
-    //Rebuild charts if needed
-    if (selected === "starcraft-anscombe") {
-      makeScatter();
-      makeResiduals();
-      makeBox();
-      makeOverlaid();
-    }
-
-  } else {
-    //Show project list if no project selected
-    list.style.display = "flex";
-    details.style.display = "none";
+  //Rebuild charts if needed
+  if (id === "starcraft-anscombe") {
+    makeScatter();
+    makeResiduals();
+    makeBox();
+    makeOverlaid();
   }
-});
+
+  //Scroll to project section
+  document.getElementById("projects").classList.add("active");
+}
+function closeProject() {
+  document.getElementById("project-details").style.display = "none";
+  document.getElementById("project-list").style.display = "flex";
+}
