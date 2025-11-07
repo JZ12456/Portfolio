@@ -1,49 +1,70 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Portfolio</title>
-<link rel="stylesheet" href="style.css" />
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jerry's Portfolio</title>
+  <script src="https://cdn.plot.ly/plotly-2.31.1.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<nav>
-<ul>
-<li><a href="#about" class="nav-link">About</a></li>
-<li><a href="#projects" class="nav-link">Projects</a></li>
-<li><button id="darkModeToggle">Dark Mode</button></li>
-</ul>
-</nav>
 
+  <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
-<section id="about" class="section active">
-<h1>About Me</h1>
-<p>Welcome to my portfolio. Explore my projects and skills below!</p>
-<div class="skills">
-<div class="skill-bar" data-skill="90">HTML</div>
-<div class="skill-bar" data-skill="80">CSS</div>
-<div class="skill-bar" data-skill="75">JavaScript</div>
-<div class="skill-bar" data-skill="100">Eating</div>
-<div class="skill-bar" data-skill="100">Sleeping</div>
-</div>
+  <header>
+    <div class="container">
+      <img src="ander.png" alt="Photo of Jerry" class="profile-pic" />
+      <h1>Jerry</h1>
+      <p class="tagline">Bestest person ever</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a onclick="showSection('about')">About</a></li>
+      <li><a onclick="showSection('projects')">Projects</a></li>
+      <li><a onclick="showSection('skills')">Skills</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <!--ABOUT-->
+    <section id="about" class="section active">
+      <h2>About Me</h2>
+      <p>I am the bestest there is (⌐■_■)</p>
+      <p>Jekyll is making my brain melt. Currently HTML and CSS — will change to a custom Jekyll theme before the course ends (built with Ruby and Git).</p>
+    </section>
+
+    <!--PROJECTS-->
+    <section id="projects" class="section">
+  <h2>Projects</h2>
+  <div id="project-list">
+    <div class="project-box" onclick="openProject('starcraft-ai')">
+      <h3>Starcraft AI</h3>
+    </div>
+    <div class="project-box" onclick="openProject('starcraft-anscombe')">
+      <h3>StarCraft Anscombe Quartet (Visualization Project)</h3>
+    </div>
+  </div>
+  <div id="project-details" style="display: none;"></div>
 </section>
+    <!--SKILLS-->
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="skill-bar"><div class="skill-bar-fill" data-width="90%">HTML</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-width="90%">CSS</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-width="50%">JavaScript</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-width="10%">Animation</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-width="100%">Sleeping</div></div>
+    </section>
+  </main>
 
+  <footer>
+    <p>GitHub: <a href="https://github.com/JZ12456" target="_blank">JZ12456</a></p>
+    <p>&copy; 2025 Jerry</p>
+  </footer>
 
-<section id="projects" class="section">
-<h1>Projects</h1>
-<div class="project-list">
-<div class="project-item" data-project="1">Project 1: Data Visualization</div>
-<div class="project-item" data-project="2">Project 2: Starcraft AI(SC2V1)</div>
-</div>
-
-
-<div id="project-detail" class="hidden">
-<button id="backButton">← Back</button>
-<div id="project-content"></div>
-</div>
-</section>
-
-
-<script src="javascript.js"></script>
+  <!--Load JS-->
+  <script src="javascript.js"></script>
 </body>
 </html>
