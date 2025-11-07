@@ -27,7 +27,6 @@ header, nav, footer {
 .section { display: none; }
 .section.active { display: block; }
 
-/* Optional nav styling */
 .nav-links li {
   display: inline-block;
   margin-right: 20px;
