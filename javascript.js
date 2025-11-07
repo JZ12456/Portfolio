@@ -2,24 +2,6 @@
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
-
-//Animate Skill Bars
-function animateSkillBars() {
-  const bars = document.querySelectorAll(".skill-bar-fill");
-  bars.forEach(bar => {
-    const width = bar.dataset.width;
-    bar.style.width = "0";
-    setTimeout(() => { bar.style.width = width; }, 100);
-  });
-}
-
-//Section Switching
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  if (id === "skills") animateSkillBars();
-}
-
 //Anscombe Data
 const x123 = [10,8,13,9,11,14,6,4,12,7,5];
 const y1 = [8.04,6.95,7.58,8.81,8.33,9.96,7.24,4.26,10.84,4.82,5.68];
@@ -170,60 +152,72 @@ document.addEventListener("DOMContentLoaded", () => {
   makeBox();
   makeOverlaid();
 });
+// ------------------
+// Section Switching
+// ------------------
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 
-//Project definitions
+  // Animate skill bars if on Skills
+  if (id === "skills") animateSkillBars();
+}
+
+// ------------------
+// Skill Bar Animation
+// ------------------
+function animateSkillBars() {
+  const bars = document.querySelectorAll(".skill-bar-fill");
+  bars.forEach(bar => {
+    const width = bar.dataset.width;
+    bar.style.width = "0";
+    setTimeout(() => { bar.style.width = width; }, 100);
+  });
+}
+
+// ------------------
+// Project Definitions
+// ------------------
 const projects = {
   "tractor-design": {
-  title: "Tractor/Segway Project",
-  content: `
-    <p><strong>Overview:</strong> The goal of this project was to design, analyze, 
-    build, and document a Hybrid OTTPA Super Mini Modified Tractor concept that meets 
-    the official OTTPA rules. The project was to better help with the understanding 
-    of mechanical and electrical systems while documenting it with professional tools 
-    such as LaTeX.</p>
-
-    <h4>LaTeX Report</h4>
-    <p>
-      <a href="EDA.pdf" target="_blank" 
-         style="color:#007bff; text-decoration:none; font-weight:bold;">
-         View Full Report
-      </a>
-    </p>
-
-    <img src="Sketch1.PNG" alt="Drive Train">
-    <img src="sketch2.PNG" alt="Control system/ Wiring">
-  `
-}
-  "starcraft-anscombe": {
-    title: "StarCraft Anscombe Quartet (Visualization Project)",
+    title: "Tractor/Segway Project",
     content: `
-      <p>Recreates the Anscombe quartet using StarCraft units as data markers, 
+      <p><strong>Overview:</strong> The goal of this project was to design, analyze, 
+      build, and document a Hybrid OTTPA Super Mini Modified Tractor concept that meets 
+      the official OTTPA rules. It helped with understanding mechanical and electrical systems 
+      while documenting with professional tools such as LaTeX.</p>
+
+      <h4>LaTeX Report</h4>
+      <p>
+        <a href="EDA.pdf" target="_blank" style="color:#007bff; font-weight:bold;">
+          View Full Report
+        </a>
+      </p>
+
+      <img src="Sketch1.PNG" alt="Drive Train" style="width:45%; margin-right:10px;">
+      <img src="sketch2.PNG" alt="Control System/Wiring" style="width:45%;">
+    `
+  },
+  "starcraft-anscombe": {
+    title: "StarCraft Anscombe Quartet",
+    content: `
+      <p>Recreates the Anscombe quartet using StarCraft units as data markers,
       showing how datasets with identical statistics can differ visually.</p>
-      <h4>LaTex Report</h4>
-    <p>
-      <a href="EDA.pdf" target="_blank" 
-         style="color:#007bff; text-decoration:none; font-weight:bold;">
-         View Full Report
-      </a>
-    </p>
-     <h4>Full Code</h4>
-    <p>
-      <a href="EDA_CODE.pdf" target="_blank" 
-         style="color:#007bff; text-decoration:none; font-weight:bold;">
-         View Full Code
-      </a>
-    </p>
+      <h4>LaTeX Report</h4>
+      <p><a href="EDA.pdf" target="_blank" style="color:#007bff; font-weight:bold;">View Full Report</a></p>
+      <h4>Full Code</h4>
+      <p><a href="EDA_CODE.pdf" target="_blank" style="color:#007bff; font-weight:bold;">View Full Code</a></p>
       <h4>Interactive Version</h4>
       <div id="scatter" class="chart"></div>
       <div id="residuals" class="chart"></div>
       <div id="box" class="chart"></div>
       <div id="overlaid" class="chart"></div>
     `
-  }
+  },
   "starcraft-ai": {
     title: "Starcraft AI",
     content: `
-       <p><strong>Overview:</strong> StarCraft 2 bot built using the BurnySC2 Python API.
+      <p><strong>Overview:</strong> StarCraft 2 bot built using the BurnySC2 Python API.
       Allows a simple rule-based AI to beat all 3 races and adapt build orders to different opponents.</p>
       <ul>
         <li><b>Race Strategy Module:</b> Executes pro build orders per race.</li>
@@ -231,14 +225,15 @@ const projects = {
         <li><b>MicroManager:</b> Handles target prioritization, retreat logic, and Medivac drop AI.</li>
         <li><b>Stable API:</b> Built on BurnySC2’s wrapper for Blizzard’s official SC2 API.</li>
       </ul>
-      <p><strong>How to Run:</strong><br>
-      <code>python terran_bot_v2.py --race Protoss --difficulty Hard</code></p>
+      <p><strong>How to Run:</strong><br><code>python terran_bot_v2.py --race Protoss --difficulty Hard</code></p>
     `
   }
 };
-//Open project
+
+// ------------------
+// Open Project
+// ------------------
 function openProject(id) {
-  //Hide project list and show project details
   const list = document.getElementById("project-list");
   const details = document.getElementById("project-details");
 
@@ -253,7 +248,7 @@ function openProject(id) {
     </div>
   `;
 
-  //Rebuild charts if needed
+  // Rebuild charts for Anscombe
   if (id === "starcraft-anscombe") {
     makeScatter();
     makeResiduals();
@@ -261,9 +256,13 @@ function openProject(id) {
     makeOverlaid();
   }
 
-  //Scroll to project section
-  document.getElementById("projects").classList.add("active");
+  // Switch to projects section
+  showSection('projects');
 }
+
+// ------------------
+// Close Project
+// ------------------
 function closeProject() {
   document.getElementById("project-details").style.display = "none";
   document.getElementById("project-list").style.display = "flex";
