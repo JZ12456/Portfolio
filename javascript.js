@@ -213,9 +213,34 @@ const projects = {
       <div id="box" class="chart"></div>
       <div id="overlaid" class="chart"></div>
     `
+  },
+  "tractor-design": {
+    title: "Tractor/Segway Project",
+    content: `
+      <p>Recreates the Anscombe quartet using StarCraft units as data markers, 
+      showing how datasets with identical statistics can differ visually.</p>
+      <h4>LaTex Report</h4>
+    <p>
+      <a href="EDA.pdf" target="_blank" 
+         style="color:#007bff; text-decoration:none; font-weight:bold;">
+         View Full Report
+      </a>
+    </p>
+     <h4>Full Code</h4>
+    <p>
+      <a href="EDA_CODE.pdf" target="_blank" 
+         style="color:#007bff; text-decoration:none; font-weight:bold;">
+         View Full Code
+      </a>
+    </p>
+      <h4>Interactive Version</h4>
+      <div id="scatter" class="chart"></div>
+      <div id="residuals" class="chart"></div>
+      <div id="box" class="chart"></div>
+      <div id="overlaid" class="chart"></div>
+    `
   }
 };
-
 //Open project
 function openProject(id) {
   window.location.href = `${window.location.pathname}?project=${id}`;
