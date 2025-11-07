@@ -193,6 +193,13 @@ const projects = {
     content: `
       <p>Recreates the Anscombe quartet using StarCraft units as data markers, 
       showing how datasets with identical statistics can differ visually.</p>
+      <h4>LaTex Report</h4>
+    <p>
+      <a href="EDA.pdf" target="_blank" 
+         style="color:#007bff; text-decoration:none; font-weight:bold;">
+         EDA
+      </a>
+    </p>
       <img src="starcraft_plot.png" alt="StarCraft Anscombe Quartet Plot" 
            style="width:100%; max-width:600px; border-radius:8px;">
       <h4>Interactive Version</h4>
