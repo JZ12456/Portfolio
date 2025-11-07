@@ -37,8 +37,6 @@ const datasets = [
 
 function fitLine(x) { return x.map(v => 3 + 0.5*v); }
 
-//Plotly Graphs
-
 //Scatterplots with fit lines
 function makeScatter() {
   const subplots = [];
@@ -85,7 +83,6 @@ function makeResiduals() {
 
 //Box and Violin
 function makeBox() {
-  //Definecolors for all datasets
   const colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"]; 
   
   const boxTraces = datasets.map((d, i) => ({
@@ -113,7 +110,6 @@ function makeBox() {
     yaxis: "y2"
   }));
 
-  //Layout box(left) vs violin(right)
   const layout = {
     title: "Box (Left) vs Violin (Right) — Anscombe Quartet",
     grid: { rows: 1, columns: 2, pattern: "independent" },
@@ -144,7 +140,6 @@ function makeBox() {
     yaxis2: { title: "Y-values", range: [2, 14] }
   };
 
-  
   Plotly.newPlot("box", [...boxTraces, ...violinTraces], layout);
 }
 
@@ -176,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
   makeOverlaid();
 });
 
-
+//Project definitions
 const projects = {
   "starcraft-ai": {
     title: "Starcraft AI",
@@ -214,7 +209,7 @@ function openProject(id) {
   window.location.href = `${window.location.pathname}?project=${id}`;
 }
 
-//Render project details
+//Details
 const params = new URLSearchParams(window.location.search);
 const selected = params.get("project");
 
@@ -231,8 +226,10 @@ if (selected && projects[selected]) {
       ${projects[selected].content}
     </div>
   `;
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('projects').classList.add('active');
 
-  // Rebuild charts if the project is the visualization one
+  //Rebuild charts if needed
   if (selected === "starcraft-anscombe") {
     makeScatter();
     makeResiduals();
