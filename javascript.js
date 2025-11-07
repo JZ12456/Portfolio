@@ -62,3 +62,4 @@ const data = id === '1'
 
 Plotly.newPlot('chart', data, {margin: {t: 20}, responsive: true});
 }
+});
