@@ -192,9 +192,9 @@ const projects = {
         <a href="Tractor.pdf" target="_blank" style="color:#007bff; font-weight:bold;">
           View Full Report
         </a>
+        <a href="https://sanchitkhope3.github.io/TractorSegwayProject/">Group website</a>
       </p>
 
-      <img src="Sketch1.PNG" alt="Drive Train" style="width:45%; margin-right:10px;">
       <img src="sketch2.PNG" alt="Control System/Wiring" style="width:45%;">
     `
   },
@@ -226,6 +226,7 @@ const projects = {
         <li><b>Stable API:</b> Built on BurnySC2’s wrapper for Blizzard’s official SC2 API.</li>
       </ul>
       <p><strong>How to Run:</strong><br><code>python terran_bot_v2.py --race Protoss --difficulty Hard</code></p>
+       <a href="https://github.com/JZ12456/SC2AI">Project website</a>
     `
   }
 };
