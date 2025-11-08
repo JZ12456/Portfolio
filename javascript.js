@@ -175,9 +175,8 @@ function animateSkillBars() {
   });
 }
 
-// ------------------
-// Project Definitions
-// ------------------
+
+//Project
 const projects = {
   "tractor-design": {
     title: "Tractor/Segway Project",
@@ -191,23 +190,28 @@ const projects = {
       <p>
         <a href="Tractor.pdf" target="_blank" style="color:#007bff; font-weight:bold;">
           View Full Report
+        </a><br>
+        <a href="https://sanchitkhope3.github.io/TractorSegwayProject/" target="_blank" style="color:#007bff;">
+          Group website
         </a>
-        </p>
-        <p> <a href="https://sanchitkhope3.github.io/TractorSegwayProject/">Group website</a>
       </p>
 
-      <img src="Sketch2.PNG" alt="Control System/Wiring" style="width:45%;">
+      <img src="sketch2.PNG" alt="Control System/Wiring" style="width:45%;">
     `
   },
+
   "starcraft-anscombe": {
     title: "StarCraft Anscombe Quartet",
     content: `
       <p>Recreates the Anscombe quartet using StarCraft units as data markers,
       showing how datasets with identical statistics can differ visually.</p>
+
       <h4>LaTeX Report</h4>
       <p><a href="EDA.pdf" target="_blank" style="color:#007bff; font-weight:bold;">View Full Report</a></p>
+
       <h4>Full Code</h4>
       <p><a href="EDA_CODE.pdf" target="_blank" style="color:#007bff; font-weight:bold;">View Full Code</a></p>
+
       <h4>Interactive Version</h4>
       <div id="scatter" class="chart"></div>
       <div id="residuals" class="chart"></div>
@@ -215,26 +219,31 @@ const projects = {
       <div id="overlaid" class="chart"></div>
     `
   },
+
   "starcraft-ai": {
     title: "Starcraft AI",
     content: `
       <p><strong>Overview:</strong> StarCraft 2 bot built using the BurnySC2 Python API.
       Allows a simple rule-based AI to beat all 3 races and adapt build orders to different opponents.</p>
+
       <ul>
         <li><b>Race Strategy Module:</b> Executes pro build orders per race.</li>
         <li><b>MacroManager:</b> Manages transitions, macro cycles, and production.</li>
         <li><b>MicroManager:</b> Handles target prioritization, retreat logic, and Medivac drop AI.</li>
         <li><b>Stable API:</b> Built on BurnySC2’s wrapper for Blizzard’s official SC2 API.</li>
       </ul>
+
       <p><strong>How to Run:</strong><br><code>python terran_bot_v2.py --race Protoss --difficulty Hard</code></p>
-       <p><a href="https://github.com/JZ12456/SC2AI">Project website</a></p>
+
+      <a href="https://github.com/JZ12456/SC2AI" target="_blank" style="color:#007bff;">
+        Project website
+      </a>
     `
   }
 };
 
-// ------------------
-// Open Project
-// ------------------
+
+//Open Project
 function openProject(id) {
   const list = document.getElementById("project-list");
   const details = document.getElementById("project-details");
@@ -262,9 +271,8 @@ function openProject(id) {
   showSection('projects');
 }
 
-// ------------------
-// Close Project
-// ------------------
+
+//Close Project
 function closeProject() {
   document.getElementById("project-details").style.display = "none";
   document.getElementById("project-list").style.display = "flex";
