@@ -196,7 +196,7 @@ const projects = {
         </a>
       </p>
 
-      <img src="sketch2.PNG" alt="Control System/Wiring" style="width:45%;">
+      <img src="Sketch2.PNG" alt="Control System/Wiring" style="width:45%;">
     `
   },
 
