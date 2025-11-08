@@ -189,7 +189,7 @@ const projects = {
 
       <h4>LaTeX Report</h4>
       <p>
-        <a href="EDA.pdf" target="_blank" style="color:#007bff; font-weight:bold;">
+        <a href="Tractor.pdf" target="_blank" style="color:#007bff; font-weight:bold;">
           View Full Report
         </a>
       </p>
