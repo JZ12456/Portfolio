@@ -232,7 +232,7 @@ const projects = {
           <small>Int variable are for variables that are never going to be decimals such as coins, levels, and arrays item list </small>
           <small>Float are for things at are going to be deicmal such as player x and y</small>
           <small>Boolean are used to detect collision, scene change and to check if you have enough money to buy items or if you reach 0 hp</small>
-          <p>Different variables were needed to statisfy the methods</p>
+          <p>Different variables were needed to statisfy the methods as some require array values, or a true from a collision detection</p>
     `
   }
 };
