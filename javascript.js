@@ -220,24 +220,19 @@ const projects = {
     `
   },
 
-  "starcraft-ai": {
-    title: "Starcraft AI",
+  "CS11LL": {
+    title: "Compuyter Science 11 learning log",
     content: `
-      <p><strong>Overview:</strong> StarCraft 2 bot built using the BurnySC2 Python API.
-      Allows a simple rule-based AI to beat all 3 races and adapt build orders to different opponents.</p>
-
-      <ul>
-        <li><b>Race Strategy Module:</b> Executes pro build orders per race.</li>
-        <li><b>MacroManager:</b> Manages transitions, macro cycles, and production.</li>
-        <li><b>MicroManager:</b> Handles target prioritization, retreat logic, and Medivac drop AI.</li>
-        <li><b>Stable API:</b> Built on BurnySC2’s wrapper for Blizzard’s official SC2 API.</li>
-      </ul>
-
-      <p><strong>How to Run:</strong><br><code>python terran_bot_v2.py --race Protoss --difficulty Hard</code></p>
-
-      <a href="https://github.com/JZ12456/SC2AI" target="_blank" style="color:#007bff;">
-        Project website
-      </a>
+        <p> Variables & Data Tracking</p>
+        <ul>
+        <li>int </li>
+        <li>float</li>
+        <li>boolean</li>
+        </ul>
+          <small>Int variable are for variables that are never going to be decimals such as coins, levels, and arrays item list </small>
+          <small>Float are for things at are going to be deicmal such as player x and y</small>
+          <small>Boolean are used to detect collision, scene change and to check if you have enough money to buy items or if you reach 0 hp</small>
+          <p>Different variables were needed to statisfy the methods</p>
     `
   }
 };
