@@ -223,7 +223,7 @@ const projects = {
   "CS11LL": {
     title: "Compuyter Science 11 learning log",
     content: `
-        <p> Variables & Data Tracking</p>
+        <h1> Variables & Data Tracking</h1>
         <ul>
         <li>int </li>
         <li>float</li>
