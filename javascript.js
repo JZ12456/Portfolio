@@ -233,7 +233,13 @@ const projects = {
           <small>Float are for things at are going to be deicmal such as player x and y</small>
           <small>Boolean are used to detect collision, scene change and to check if you have enough money to buy items or if you reach 0 hp</small>
           <p>Different variables were needed to statisfy the methods as some require array values, or a true from a collision detection</p>
-    `
+          <h1> Selection Structure</h1>
+          <small>we had a lot of boolean selection structures for different part of the game mostly for when you enter a bossfight or when your health reaches 0 </small>
+          <small>The structures helped us make sure that the code remains clean and parts that were not meant to be loaded stays unloaded </small>
+          <small>For example we had an error in which the interaction key for the boss would still work even if you were not in the area as intended, as it was being loaded costly so we had to add another boolean and if statement to fix</small>
+          <h1> Repition structure</h1>
+          
+    `  
   }
 };
 
