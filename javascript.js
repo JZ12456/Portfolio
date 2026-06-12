@@ -237,8 +237,20 @@ const projects = {
           <small>we had a lot of boolean selection structures for different part of the game mostly for when you enter a bossfight or when your health reaches 0 </small>
           <small>The structures helped us make sure that the code remains clean and parts that were not meant to be loaded stays unloaded </small>
           <small>For example we had an error in which the interaction key for the boss would still work even if you were not in the area as intended, as it was being loaded costly so we had to add another boolean and if statement to fix</small>
-          <h1> Repition structure</h1>
-          
+          <h1> Repition structure and arrays</h1>
+          <p> Before we scraped the idea of a adding a slot machine for a fun way to make money, it was coded with for loops which accesed each images Y value in the array to add the spinSpeed to the image until the if Statement which covered it became false  </p>
+          <small>The if statement inside just made that if the image went under the canvas it would change the Y value to the top of the canvas to reset </small>
+          <p>
+        for (int i = 0; i < 3; i++) {
+            itemY[i] = itemY[i] + spinSpeed; 
+            
+            // reset img to top
+            if (itemY[i] > boxY + boxHeight) {
+                itemY[i] = boxY;     
+            }
+        }
+        </p>
+        <h1> Custom functions </h1>  
     `  
   }
 };
