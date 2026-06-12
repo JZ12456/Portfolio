@@ -250,7 +250,10 @@ const projects = {
             }
         }
         </p>
-        <h1> Custom functions </h1>  
+        <h1> Custom functions</h1>  
+        <p>One of the custom functions was playerMove, it is difference from key pressed as we wanted the game to have an undertale vibe, so when you open the boss screen(attack boolean turns true) you can still move in the arena, otherwise it checks for edge collision  </p>
+        <p>There was one function for the scraped slots machine that was called checkwin, it was made that each image was assigned a number value and it checks what rewards to give based on what each image is. </p>
+        <p>Another custom functions was how we did the attacks for the bosses, we made the attacks to seperate functions such as fourwayslash or basicslash so it can just be called to work, each method impacts the boss fight canvas and there will be a collision check for the player to the attack to take away health points </p>
     `  
   }
 };
